@@ -1,23 +1,26 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 class Solution {
     public boolean detectCapitalUse(String word) {
 
-        Pattern upperFirst = Pattern.compile("^[A-Z][a-z]*$", Pattern.CASE_INSENSITIVE);
-        Pattern upperAll = Pattern.compile("^[A-Z]+$", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = upperFirst.matcher(word);
+        String upperFirst = "^[A-Z]([a-z]*)$";
+        String upperAll = "^[A-Z]+$";
+        String lowerAll = "^[a-z]+$";
         boolean matchFound = false;
+        
 
-        if (matchFound = matcher.find()) {
-          
-        } else {
-            matcher = upperAll.matcher(word);
-            matchFound = matcher.find();
+        if (word.matches(upperFirst)) {
+
+            matchFound = true;
+
+        } else if (word.matches(upperAll)) {
+            
+            matchFound = true;
+
+        } else if (word.matches(lowerAll)) {
+            
+            matchFound = true;
 
         }
         
         return matchFound;
-        
     }
 }
